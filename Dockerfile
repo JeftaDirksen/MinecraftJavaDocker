@@ -17,7 +17,4 @@ ENV EULA=
 # server.properties settings
 ENV SEED=
 
-# Webstore URL - See: https://github.com/JMDirksen/WebStore
-ENV WEBSTORE=
-
 CMD ["/bin/bash", "run.sh"]

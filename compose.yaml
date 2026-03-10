@@ -10,7 +10,6 @@ services:
       - MEMORY=4G
       - EULA=true
       - SEED=abc
-      - WEBSTORE=https://webstore.domain.com
     restart: unless-stopped
     tty: true
     stdin_open: true
