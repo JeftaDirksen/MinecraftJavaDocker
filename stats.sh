@@ -13,10 +13,7 @@ alpha_month=$(awk 'BEGIN{printf "%.8f", 1/8640}')
 stats_file="server/players_stats"
 
 while true; do
-    # count online players by checking recent stat files
-    online=$(find server/world/stats -mmin -5 -type f | wc -l)
-
-    # load previous averages from stats_file if it exists
+    # load previous stats from stats_file if it exists
     if [ -f "$stats_file" ]; then
         # shellcheck disable=SC1090
         . "$stats_file"
@@ -26,19 +23,26 @@ while true; do
         avg_month=0
     fi
 
+    # count online players by checking recent stat files
+    online=$(find server/world/stats -mmin -5 -type f | wc -l)
+
+    # get world size
+    world_size=$(du -hs server/world | awk '{print $1}')
+
     # update running averages (EWMA)
     avg_day=$(awk -v a=$alpha_day -v o=$online -v p=$avg_day 'BEGIN{printf "%.5f", a*o + (1-a)*p}')
     avg_week=$(awk -v a=$alpha_week -v o=$online -v p=$avg_week 'BEGIN{printf "%.5f", a*o + (1-a)*p}')
     avg_month=$(awk -v a=$alpha_month -v o=$online -v p=$avg_month 'BEGIN{printf "%.5f", a*o + (1-a)*p}')
 
     # write stats (and also state for next run)
-    echo current=$online > "$stats_file"
+    echo online=$online > "$stats_file"
     echo avg_day=$avg_day >> "$stats_file"
     echo avg_week=$avg_week >> "$stats_file"
     echo avg_month=$avg_month >> "$stats_file"
+    echo world_size=$world_size >> "$stats_file"
 
     # print stats to console
-    echo "Online players: $online, Avg Day: $avg_day, Avg Week: $avg_week, Avg Month: $avg_month"
+    echo "Online players: $online, Avg Day: $avg_day, Avg Week: $avg_week, Avg Month: $avg_month, World Size: $world_size"
 
     sleep 300
 
