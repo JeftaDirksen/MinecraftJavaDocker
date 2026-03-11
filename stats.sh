@@ -10,7 +10,7 @@ alpha_week=$(awk 'BEGIN{printf "%.8f", 1/2016}')
 alpha_month=$(awk 'BEGIN{printf "%.8f", 1/8640}')
 
 # single file for both state and output
-stats_file="server/players_stats"
+stats_file="server/stats"
 
 while true; do
     # load previous stats from stats_file if it exists
