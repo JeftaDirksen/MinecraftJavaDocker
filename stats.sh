@@ -27,9 +27,9 @@ while true; do
     fi
 
     # update running averages (EWMA)
-    avg_day=$(awk -v a=$alpha_day -v o=$online -v p=$avg_day 'BEGIN{printf "%.4f", a*o + (1-a)*p}')
-    avg_week=$(awk -v a=$alpha_week -v o=$online -v p=$avg_week 'BEGIN{printf "%.4f", a*o + (1-a)*p}')
-    avg_month=$(awk -v a=$alpha_month -v o=$online -v p=$avg_month 'BEGIN{printf "%.4f", a*o + (1-a)*p}')
+    avg_day=$(awk -v a=$alpha_day -v o=$online -v p=$avg_day 'BEGIN{printf "%.5f", a*o + (1-a)*p}')
+    avg_week=$(awk -v a=$alpha_week -v o=$online -v p=$avg_week 'BEGIN{printf "%.5f", a*o + (1-a)*p}')
+    avg_month=$(awk -v a=$alpha_month -v o=$online -v p=$avg_month 'BEGIN{printf "%.5f", a*o + (1-a)*p}')
 
     # write stats (and also state for next run)
     echo current=$online > "$stats_file"

@@ -33,9 +33,9 @@ A file is created inside the mounted `server` directory:
 * `players_stats` – single file used by the script for both state and reporting. It contains four lines:
   ```
   current=1
-  avg_day=0.1234
-  avg_week=0.2345
-  avg_month=0.3456
+  avg_day=0.12345
+  avg_week=0.23456
+  avg_month=0.34567
   ```
 
 # Compose file
