@@ -33,4 +33,4 @@ echo "Latest version: $latest_version"
 echo "Set memory: $MEMORY"
 echo "Starting server..."
 cd server
-screen -S mc java -Xms$MEMORY -Xmx$MEMORY -jar server.jar
+screen -S mc java -Xms$MEMORY -Xmx$MEMORY --enable-native-access=ALL-UNNAMED -jar server.jar
