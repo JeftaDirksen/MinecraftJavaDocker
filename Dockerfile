@@ -1,5 +1,5 @@
 FROM ubuntu
-RUN apt-get update && apt-get install -y openjdk-21-jre-headless curl jq screen
+RUN apt-get update && apt-get install -y openjdk-25-jre-headless curl jq screen
 EXPOSE 25565
 USER 1000:1000
 VOLUME /data/server
