@@ -24,7 +24,7 @@ while true; do
     fi
 
     # count online players by checking recent stat files
-    online=$(find server/world/stats -mmin -5 -type f | wc -l)
+    online=$(find server/world/players/stats -mmin -5 -type f | wc -l)
 
     # get world size
     world_size=$(du -hs server/world | awk '{print $1}')
