@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Wait for server to start
-sleep 1m
+sleep 1.4m
 
 while true; do
 
@@ -16,6 +16,6 @@ while true; do
         curl -d secret="$NVG_SECRET" -d players=$online -d worldsize=$world_size $NVG_URL
     fi
 
-    sleep 1m
+    sleep 5m
 
 done

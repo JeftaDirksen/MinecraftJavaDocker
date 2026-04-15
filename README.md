@@ -71,7 +71,7 @@ docker run -dit --name minecraftjava \
   minecraftjava
 ```
 
-If both variables are set, the helper script will send `players` and `worldsize` values every minute.
+If both variables are set, the helper script will send `players` and `worldsize` values every 5 minutes.
 
 # Compose file
 You can also use the compose file like so:

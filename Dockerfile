@@ -7,6 +7,7 @@ WORKDIR /data
 COPY --chown=1000:1000 --chmod=750 run.sh .
 COPY --chown=1000:1000 --chmod=750 update.sh .
 COPY --chown=1000:1000 --chmod=750 stats.sh .
+COPY --chown=1000:1000 --chmod=750 nvg.sh .
 
 # Set the java -Xms and -Xmx parameters
 ENV MEMORY=4G
