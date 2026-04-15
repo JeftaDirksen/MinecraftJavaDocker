@@ -7,9 +7,9 @@ services:
     volumes:
       - ./server:/data/server
     environment:
-      - MEMORY=4G
-      - EULA=true
-      - SEED=abc
+      - MEMORY=${MEMORY:-4G}
+      - EULA=${EULA:-true}
+      - SEED=${SEED:-abc}
       - NVG_URL=${NVG_URL}
       - NVG_SECRET=${NVG_SECRET}
     restart: unless-stopped
