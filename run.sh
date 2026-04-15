@@ -29,6 +29,9 @@ echo "Latest version: $latest_version"
 # Run updater in background
 ./update.sh &
 
+# Run NumericValueGraphing in background
+./nvg.sh &
+
 # Starting server
 echo "Set memory: $MEMORY"
 echo "Starting server..."

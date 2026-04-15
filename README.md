@@ -46,6 +46,33 @@ After the script has run at least once you will find a file in the mounted
 
 The script also prints the same values to standard output every five minutes.
 
+# NumericValueGraphing
+The repository can optionally send server statistics to a NumericValueGraphing endpoint.
+See: https://github.com/JeftaDirksen/NumericValueGraphing
+
+Set the following environment variables to enable it:
+
+- `NVG_URL` – NumericValueGraphing destination URL
+- `NVG_SECRET` – shared secret used by the endpoint
+
+Example `.env` file:
+```
+NVG_URL=https://graph.example
+NVG_SECRET=secretvalue
+```
+
+Example `docker run` usage:
+```
+docker run -dit --name minecraftjava \
+  -e EULA=true \
+  -e SEED=abc \
+  -e NVG_URL=https://graph.example \
+  -e NVG_SECRET=secretvalue \
+  minecraftjava
+```
+
+If both variables are set, the helper script will send `players` and `worldsize` values every minute.
+
 # Compose file
 You can also use the compose file like so:
 ```
