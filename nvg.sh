@@ -13,7 +13,8 @@ while true; do
 
     # Send data to NumericValueGraphing URL if configured
     if [ -n "$NVG_URL" ] && [ -n "$NVG_SECRET" ]; then
-        curl -d secret="$NVG_SECRET" -d players=$online -d worldsize=$world_size $NVG_URL
+        echo "Sending data to NumericValueGraphing: players=$online, worldsize=$world_size GB"
+        curl -d secret=$NVG_SECRET -d players=$online -d worldsize=$world_size $NVG_URL
     fi
 
     sleep 5m
